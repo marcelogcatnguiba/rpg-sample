@@ -1,4 +1,4 @@
-namespace RpgSample.Domain.Entities;
+namespace RpgSample.Domain.Entities.Players;
 
 public class Player(int hp, Attributes attributes) : Character(hp, attributes)
 {

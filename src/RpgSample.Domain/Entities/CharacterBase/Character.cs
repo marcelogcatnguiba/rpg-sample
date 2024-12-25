@@ -3,29 +3,28 @@ namespace RpgSample.Domain.Entities.CharacterBase;
 public abstract class Character: TargetObject
 {
     private readonly HitChance _hitChance = new();
+    
     public Attributes Attributes { get; set; }
-    public AttributesSecondary AttributesSecondary { get; set; }
+    public AttributesSecondary AttributesSecondary { get; set; } = new();
 
     public Character(int hp, Attributes attributes) : base(hp, null)
     {
         Attributes = attributes;
         SetAttributesSecondary();
-        
-        Damage = AttributesSecondary!.Damage;
     }
 
     public virtual int Attack(Character target)
     {
         if(_hitChance.IsHitTarget(this, target))
         {
-            target.HP -= AttributesSecondary.Damage;
+            target.SetDamage(AttributesSecondary.Damage);
             return AttributesSecondary.Damage;
         }
 
         return 0;
     }
 
-    public virtual void SetAttributesSecondary()
+    protected virtual void SetAttributesSecondary()
     {
         AttributesSecondary = new()
         {
@@ -33,6 +32,8 @@ public abstract class Character: TargetObject
             HitChance = Attributes.Dexterity * 5,
             DodgeChance = Attributes.Dexterity * 5
         };
+
+        Damage = AttributesSecondary!.Damage;
     }
 
     public override string ToString()

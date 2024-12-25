@@ -6,8 +6,6 @@ public abstract class TargetObject(int hp, int? damage)
     public int Damage { get; set; } = damage ?? 0;
     public bool IsDead { get => HP.Equals(0); }
 
-    public override string ToString()
-    {
-        return $"HP: {HP}\nDamage: {Damage}";
-    }
+    protected virtual void SetDamage(int damage) => HP -= damage;
+    public override string ToString() => $"HP: {HP}\nDamage: {Damage}";
 }
