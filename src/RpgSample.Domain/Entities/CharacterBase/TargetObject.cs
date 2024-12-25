@@ -1,4 +1,4 @@
-namespace RpgSample.Domain.Entities;
+namespace RpgSample.Domain.Entities.CharacterBase;
 
 public abstract class TargetObject(int hp, int? damage)
 {

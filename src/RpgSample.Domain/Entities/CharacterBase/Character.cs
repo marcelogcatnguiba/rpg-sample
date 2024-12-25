@@ -1,6 +1,4 @@
-using RpgSample.Domain.Service;
-
-namespace RpgSample.Domain.Entities;
+namespace RpgSample.Domain.Entities.CharacterBase;
 
 public abstract class Character: TargetObject
 {
@@ -39,7 +37,7 @@ public abstract class Character: TargetObject
 
     public override string ToString()
     {
-        return $"{this.GetType().Name} stats:\n" 
+        return $"{GetType().Name} stats:\n" 
             + base.ToString()
             +"\n"
             + $"Hit: {AttributesSecondary.HitChance}\t"

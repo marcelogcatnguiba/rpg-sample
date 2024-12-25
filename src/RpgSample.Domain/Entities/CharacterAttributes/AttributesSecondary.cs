@@ -1,4 +1,4 @@
-namespace RpgSample.Domain.Entities;
+namespace RpgSample.Domain.Entities.CharacterAttributes;
 
 public class AttributesSecondary
 {

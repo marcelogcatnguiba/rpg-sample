@@ -1,5 +1,4 @@
-
-namespace RpgSample.Domain.Service;
+namespace RpgSample.Domain.Service.HitChanceService;
 
 public class HitChance : IHitChance
 {

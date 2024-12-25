@@ -1,4 +1,4 @@
-namespace RpgSample.Domain.Service;
+namespace RpgSample.Domain.Service.BattleService;
 
 public class Battle
 {
@@ -33,10 +33,10 @@ public class Battle
         var loser = one.IsDead ? one : two;
         if(loser is not null)
         {
-            System.Console.WriteLine($"{loser.GetType().Name} morreu ...");
+            Console.WriteLine($"{loser.GetType().Name} morreu ...");
             return;
         }
-        
-        System.Console.WriteLine("Empatado");
+
+        Console.WriteLine("Empatado");
     }
 }
