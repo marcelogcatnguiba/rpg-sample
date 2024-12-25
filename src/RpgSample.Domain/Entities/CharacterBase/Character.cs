@@ -15,26 +15,31 @@ public abstract class Character: TargetObject
 
     public virtual int Attack(Character target)
     {
-        if(_hitChance.IsHitTarget(this, target))
+        if(!_hitChance.IsHitTarget(this, target))
         {
-            target.SetDamage(AttributesSecondary.Damage);
-            return AttributesSecondary.Damage;
+            return 0;
         }
 
-        return 0;
+        var causeDamage = AttributesSecondary.Damage - target.AttributesSecondary.Defense;
+        target.SetDamage(causeDamage <= 0 ? 0 : causeDamage);
+
+        return causeDamage;
     }
 
     protected virtual void SetAttributesSecondary()
     {
-        AttributesSecondary = new()
-        {
-            Damage = Attributes.Strength * 1,
-            HitChance = Attributes.Dexterity * 5,
-            DodgeChance = Attributes.Dexterity * 5
-        };
+        SetDamage();
+        SetHitChance();
+        SetDodge();
+        SetDefense();
 
         Damage = AttributesSecondary!.Damage;
     }
+
+    protected virtual void SetDamage() => AttributesSecondary.Damage = Attributes.Strength * 1;
+    protected virtual void SetHitChance() => AttributesSecondary.HitChance = Attributes.Dexterity * 5;
+    protected virtual void SetDodge() => AttributesSecondary.DodgeChance = Attributes.Dexterity * 5;
+    protected abstract void SetDefense();
 
     public override string ToString()
     {
@@ -42,7 +47,8 @@ public abstract class Character: TargetObject
             + base.ToString()
             +"\n"
             + $"Hit: {AttributesSecondary.HitChance}\t"
-            + $"Dodge: {AttributesSecondary.DodgeChance}"
+            + $"Dodge: {AttributesSecondary.DodgeChance}\t"
+            + $"Defense: {AttributesSecondary.Defense}"
             + $"\nIsDead {IsDead}";
     }
 }

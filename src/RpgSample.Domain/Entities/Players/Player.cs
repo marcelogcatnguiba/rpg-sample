@@ -9,4 +9,6 @@ public class Player(int hp, Attributes attributes) : Character(hp, attributes)
         _weaponDamage = dmg;
         Damage += _weaponDamage;
     }
+
+    protected override void SetDefense() => AttributesSecondary.Defense = 3;
 }
