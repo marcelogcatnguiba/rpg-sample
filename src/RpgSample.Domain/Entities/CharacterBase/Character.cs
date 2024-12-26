@@ -7,7 +7,7 @@ public abstract class Character: TargetObject
     public Attributes Attributes { get; set; }
     public AttributesSecondary AttributesSecondary { get; set; } = new();
 
-    public Character(int hp, Attributes attributes) : base(hp, null)
+    public Character(int hp, Attributes attributes) : base(hp)
     {
         Attributes = attributes;
         SetAttributesSecondary();
@@ -20,7 +20,7 @@ public abstract class Character: TargetObject
             return 0;
         }
 
-        var causeDamage = AttributesSecondary.Damage - target.AttributesSecondary.Defense;
+        var causeDamage = CurrentDamage() - target.AttributesSecondary.Defense;
         target.SetDamage(causeDamage <= 0 ? 0 : causeDamage);
 
         return causeDamage;
@@ -32,8 +32,6 @@ public abstract class Character: TargetObject
         SetHitChance();
         SetDodge();
         SetDefense();
-
-        Damage = AttributesSecondary!.Damage;
     }
 
     protected virtual void SetDamage() => AttributesSecondary.Damage = Attributes.Strength * 1;
@@ -41,14 +39,18 @@ public abstract class Character: TargetObject
     protected virtual void SetDodge() => AttributesSecondary.DodgeChance = Attributes.Dexterity * 5;
     protected abstract void SetDefense();
 
+    protected abstract int CurrentDamage();
+    public abstract int CurrentHit();
+
     public override string ToString()
     {
         return $"{GetType().Name} stats:\n" 
-            + base.ToString()
-            +"\n"
-            + $"Hit: {AttributesSecondary.HitChance}\t"
-            + $"Dodge: {AttributesSecondary.DodgeChance}\t"
-            + $"Defense: {AttributesSecondary.Defense}"
-            + $"\nIsDead {IsDead}";
+            + $"HP: {HP}\n"
+            + $"Damage: {AttributesSecondary.Damage}\n"
+            + $"Current Damage: {CurrentDamage()}\n"
+            + $"Defense: {AttributesSecondary.Defense}\n"
+            + $"Hit: {AttributesSecondary.HitChance}\n"
+            + $"Dodge: {AttributesSecondary.DodgeChance}\n"
+            + $"IsDead {IsDead}";
     }
 }

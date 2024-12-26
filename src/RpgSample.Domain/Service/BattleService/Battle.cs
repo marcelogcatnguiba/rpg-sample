@@ -1,3 +1,5 @@
+using RpgSample.Domain.Weapons;
+
 namespace RpgSample.Domain.Service.BattleService;
 
 public class Battle
@@ -22,11 +24,22 @@ public class Battle
             
             Console.WriteLine("Press to continue ...");
             Console.WriteLine("Press to [q] to exit ...");
+            Console.WriteLine("Press to [1] to equip sword in player ...");
             var args = Console.ReadKey();
 
             if(args.KeyChar.Equals('q'))
             {
                 break;
+            }
+
+            if(args.KeyChar.Equals('1'))
+            {
+                var sword = new Sword(10, 5);
+                
+                var player = (Player)one;
+                player.EquipWeapon(sword);
+
+                Console.WriteLine("Sword equipada com sucesso!.");
             }
         }
 
