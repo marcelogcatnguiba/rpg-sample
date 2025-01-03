@@ -34,7 +34,7 @@ public class BattleService
 
             if(args.KeyChar.Equals('1'))
             {
-                var sword = new Sword(10, 5);
+                var sword = new Sword(new(4, 8), 5);
                 
                 var player = (Player)one;
                 player.EquipWeapon(sword);

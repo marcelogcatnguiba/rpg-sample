@@ -17,10 +17,10 @@ public class Player(int hp, Attributes attributes) : Character(hp, attributes)
     {
         if(Equipments.HaveWeapon())
         {
-            return AttributesSecondary.Damage + Equipments.FirstHand!.Weapon!.Damage;
+            return GetDamage(Equipments.MinDamage(), Equipments.MaxDamage());
         }
 
-        return AttributesSecondary.Damage;
+        return _random.Next(AttributesSecondary.MinMaxDamage.Min, AttributesSecondary.MinMaxDamage.Max);
     }
 
     public override int CurrentHit()
@@ -31,5 +31,18 @@ public class Player(int hp, Attributes attributes) : Character(hp, attributes)
         }
 
         return AttributesSecondary.HitChance;
+    }
+
+    private int GetCurrentMinDamage() => Equipments.HaveWeapon() 
+        ? Equipments.MinDamage() + AttributesSecondary.MinDamage() 
+            : AttributesSecondary.MinDamage();
+    
+    private int GetCurrentMaxDamage() => Equipments.HaveWeapon() 
+        ? Equipments.MaxDamage() + AttributesSecondary.MaxDamage() 
+            : AttributesSecondary.MaxDamage();
+    public override string ToString()
+    {
+        return base.ToString()
+            + $"\n{GetCurrentMinDamage()} - {GetCurrentMaxDamage()}";
     }
 }

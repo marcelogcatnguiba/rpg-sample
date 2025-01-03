@@ -2,16 +2,16 @@ namespace RpgSample.Domain.Entities.CharacterAttributes;
 
 public class AttributesSecondary
 {
-    public int Damage { get; set; }
+    public MinMaxDamage MinMaxDamage { get; set; } = new();
     public int Defense { get; set; }
     public int HitChance { get; private set; }
     public int DodgeChance { get; private set; }
 
-    public void UpdateStats(int? dmg, int? defense, int? hit, int? dodge)
+    public void UpdateStats(MinMaxDamage? minMaxDamage, int? defense, int? hit, int? dodge)
     {
-        if(dmg != null)
+        if(MinMaxDamage != null)
         {
-            Damage = (int)dmg;
+            MinMaxDamage = minMaxDamage!;
         }
 
         if(defense != null)
@@ -29,4 +29,7 @@ public class AttributesSecondary
             DodgeChance = (int)dodge;
         }
     }
+
+    public int MinDamage() => MinMaxDamage.Min;
+    public int MaxDamage() => MinMaxDamage.Max;
 }

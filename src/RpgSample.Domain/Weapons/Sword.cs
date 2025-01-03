@@ -1,6 +1,6 @@
 namespace RpgSample.Domain.Weapons;
 
-public class Sword(int damage, int hit) : Weapon(damage, hit)
+public class Sword(MinMaxDamage minMaxDamage, int hit) : Weapon(minMaxDamage, hit)
 {
     
 }

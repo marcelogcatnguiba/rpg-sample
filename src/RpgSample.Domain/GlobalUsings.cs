@@ -7,3 +7,4 @@ global using RpgSample.Domain.Entities.Players;
 global using RpgSample.Domain.Entities.Enemies;
 global using RpgSample.Domain.Service.Attack;
 global using RpgSample.Domain.Weapons;
+global using RpgSample.Domain.Entities.Model;

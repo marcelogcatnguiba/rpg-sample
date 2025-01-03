@@ -1,7 +1,7 @@
 namespace RpgSample.Domain.Weapons;
 
-public abstract class Weapon(int damage, int hit)
+public abstract class Weapon(MinMaxDamage minMaxDamage, int hit)
 {
-    public int Damage { get; set; } = damage;
+    public MinMaxDamage MinMaxDamage { get; set; } = minMaxDamage;
     public int HitChance { get; set; } = hit;
 }
