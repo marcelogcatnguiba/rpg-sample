@@ -1,8 +1,6 @@
-using RpgSample.Domain.Weapons;
+namespace RpgSample.Domain.Service.Battle;
 
-namespace RpgSample.Domain.Service.BattleService;
-
-public class Battle
+public class BattleService
 {
     private static readonly AttackService atk = new();
 
@@ -13,7 +11,7 @@ public class Battle
             Console.WriteLine("Start battle");
             Console.WriteLine("\n");
 
-            ShowBattleStats.Show(one, two);
+            BattleUIService.Show(one, two);
             Console.WriteLine("\n");
 
             Console.WriteLine("\tBATTLE STATS\n");
@@ -21,7 +19,7 @@ public class Battle
             Console.WriteLine($"Enemy cause {atk.Attack(two, one)} damage.");
             Console.WriteLine("\n");
             
-            ShowBattleStats.Show(one, two);
+            BattleUIService.Show(one, two);
             Console.WriteLine("\n");
             
             Console.WriteLine("Press to continue ...");

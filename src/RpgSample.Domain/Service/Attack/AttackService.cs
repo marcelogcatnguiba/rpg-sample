@@ -1,5 +1,5 @@
 
-namespace RpgSample.Domain.Service.HitChanceService;
+namespace RpgSample.Domain.Service.Attack;
 
 public class AttackService : IAttackService
 {

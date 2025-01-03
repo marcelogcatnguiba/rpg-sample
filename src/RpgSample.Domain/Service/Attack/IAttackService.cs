@@ -1,4 +1,4 @@
-namespace RpgSample.Domain.Service.HitChanceService;
+namespace RpgSample.Domain.Service.Attack;
 
 public interface IAttackService
 {

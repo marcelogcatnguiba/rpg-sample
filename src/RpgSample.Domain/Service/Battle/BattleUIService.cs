@@ -1,6 +1,6 @@
-namespace RpgSample.Domain.Service.BattleService;
+namespace RpgSample.Domain.Service.Battle;
 
-public class ShowBattleStats
+public class BattleUIService
 {
     public static void Show(TargetObject objOne, TargetObject objTwo)
     {
