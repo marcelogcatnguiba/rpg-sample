@@ -14,7 +14,7 @@ public static class BattleService
             BattleUIService.Show(one, two);
             Console.WriteLine("\n");
 
-            Console.WriteLine("\tBATTLE STATS\n");
+            Console.WriteLine("\tBATTLE LOGS\n");
             Console.WriteLine($"Player cause {atk.Attack(one, two)} damage.\n");
             Console.WriteLine($"Enemy cause {atk.Attack(two, one)} damage.");
             Console.WriteLine("\n");

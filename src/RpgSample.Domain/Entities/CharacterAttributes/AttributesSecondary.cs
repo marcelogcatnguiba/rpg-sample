@@ -30,6 +30,17 @@ public class AttributesSecondary
         }
     }
 
+    public void UpdateStats(Attributes attributes)
+    {
+        MinMaxDamage.Min = attributes.Strength * 1;
+        MinMaxDamage.Max = attributes.Strength * 2;
+
+        Defense = attributes.Strength / 2;
+        
+        HitChance = attributes.Dexterity * 1;
+        DodgeChance = attributes.Dexterity * 1;
+    }
+
     public int MinDamage() => MinMaxDamage.Min;
     public int MaxDamage() => MinMaxDamage.Max;
 }
