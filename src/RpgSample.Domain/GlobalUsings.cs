@@ -1,6 +1,6 @@
 global using RpgSample.Domain.Entities.CharacterAttributes;
 global using RpgSample.Domain.Entities.CharacterBase;
-global using RpgSample.Domain.Service.HitService;
+global using RpgSample.Domain.Service.Hit;
 global using System;
 global using RpgSample.Domain.Service.Battle;
 global using RpgSample.Domain.Entities.Players;
@@ -8,3 +8,4 @@ global using RpgSample.Domain.Entities.Enemies;
 global using RpgSample.Domain.Service.Attack;
 global using RpgSample.Domain.Weapons;
 global using RpgSample.Domain.Entities.Model;
+global using RpgSample.Domain.Service.Battle.UI;

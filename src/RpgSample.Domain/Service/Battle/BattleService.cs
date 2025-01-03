@@ -1,6 +1,6 @@
 namespace RpgSample.Domain.Service.Battle;
 
-public class BattleService
+public static class BattleService
 {
     private static readonly AttackService atk = new();
 

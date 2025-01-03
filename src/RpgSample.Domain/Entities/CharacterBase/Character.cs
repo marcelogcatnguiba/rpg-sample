@@ -6,7 +6,7 @@ public abstract class Character: TargetObject
     public Attributes Attributes { get; set; }
     public AttributesSecondary AttributesSecondary { get; private set; } = new();
 
-    public Character(int hp, Attributes attributes) : base(hp)
+    protected Character(int hp, Attributes attributes) : base(hp)
     {
         Attributes = attributes;
 

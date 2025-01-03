@@ -1,4 +1,3 @@
-
 namespace RpgSample.Domain.Service.Attack;
 
 public class AttackService : IAttackService
