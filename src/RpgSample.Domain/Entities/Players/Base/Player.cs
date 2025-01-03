@@ -1,8 +1,6 @@
-using RpgSample.Domain.Entities.Equipments;
+namespace RpgSample.Domain.Entities.Players.Base;
 
-namespace RpgSample.Domain.Entities.Players;
-
-public class Player(int hp, Attributes attributes) : Character(hp, attributes)
+public abstract class Player(int hp, Attributes attributes) : Character(hp, attributes)
 {
     public Equip Equipments { get; set; } = new();
 
@@ -15,15 +13,9 @@ public class Player(int hp, Attributes attributes) : Character(hp, attributes)
         ? GetDamage(Equipments.MinDamage(), Equipments.MaxDamage())
         : GetDamage();
 
-    public override int CurrentHit()
-    {
-        if(Equipments.HaveWeapon())
-        {
-            return AttributesSecondary.HitChance + Equipments.FirstHand!.Weapon!.HitChance;
-        }
-
-        return AttributesSecondary.HitChance;
-    }
+    public override int CurrentHit() => Equipments.HaveWeapon()
+        ? AttributesSecondary.HitChance + Equipments.FirstHand!.Weapon!.HitChance
+        : AttributesSecondary.HitChance;
 
     private int GetCurrentMinDamage() => Equipments.HaveWeapon() 
         ? Equipments.MinDamage() + AttributesSecondary.MinDamage() 

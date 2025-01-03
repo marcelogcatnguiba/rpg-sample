@@ -12,7 +12,7 @@ public abstract class Character: TargetObject
         AttributesSecondary.UpdateStats(Attributes);
     }
 
-    public abstract int CurrentHit();
+    public virtual int CurrentHit() => AttributesSecondary.HitChance;
 
     public virtual int CurrentDamage() => 
         _random.Next(AttributesSecondary.MinDamage(), 

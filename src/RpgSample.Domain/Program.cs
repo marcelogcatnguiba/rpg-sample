@@ -1,4 +1,4 @@
-﻿var playerOne = new Player(100, new Attributes(5, 5, 5));
-var goblin = new Goblin(50, new Attributes(5, 4, 2));
+﻿var warrior = PlayersFactory.CreateCaracter(CaracterClass.Warrior);
+var wolf = EnemiesFactory.CreateEnemy(EnemyClass.Wolf);
 
-BattleService.Start(playerOne, goblin);
+BattleService.Start(warrior, wolf);
