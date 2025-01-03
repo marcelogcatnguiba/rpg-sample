@@ -11,7 +11,7 @@ public static class BattleService
             Console.WriteLine("Start battle");
             Console.WriteLine("\n");
 
-            BattleUIService.Show(one, two);
+            BattleUIService.ShowStats(one, two);
             Console.WriteLine("\n");
 
             Console.WriteLine("\tBATTLE LOGS\n");
@@ -19,7 +19,7 @@ public static class BattleService
             Console.WriteLine($"Enemy cause {atk.Attack(two, one)} damage.");
             Console.WriteLine("\n");
             
-            BattleUIService.Show(one, two);
+            BattleUIService.ShowStats(one, two);
             Console.WriteLine("\n");
             
             Console.WriteLine("Press to continue ...");
@@ -41,15 +41,16 @@ public static class BattleService
 
                 Console.WriteLine("Sword equipada com sucesso!.");
             }
+        
+            var loser = one.IsDead ? one : two;
+            if(loser is not null)
+            {
+                Console.WriteLine($"\n{loser.GetType().Name} morreu ...");
+                return;
+            }
         }
 
-        var loser = one.IsDead ? one : two;
-        if(loser is not null)
-        {
-            Console.WriteLine($"{loser.GetType().Name} morreu ...");
-            return;
-        }
 
-        Console.WriteLine("Empatado");
+        Console.WriteLine("\nEmpatado");
     }
 }

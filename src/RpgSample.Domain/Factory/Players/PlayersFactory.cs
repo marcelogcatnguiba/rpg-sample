@@ -7,6 +7,6 @@ public static class PlayersFactory
         {
             CaracterClass.Warrior => new Warrior(100, new(8, 5, 2)),
 
-            _ => throw new NotImplementedException("Classe invalida")
+            _ => throw new NotImplementedException("Class not found")
         };
 }
