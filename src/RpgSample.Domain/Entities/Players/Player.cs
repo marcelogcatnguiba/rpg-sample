@@ -10,14 +10,12 @@ public class Player(int hp, Attributes attributes) : Character(hp, attributes)
 
     public void EquipWeapon(Weapon weapon)
     {
-        Equipments.FirstHand ??= new();
-
-        Equipments.FirstHand.Weapon = weapon;
+        Equipments.FirstHand ??= new(weapon);
     }
 
     public override int CurrentDamage()
     {
-        if(Equipments.FirstHand != null && Equipments.FirstHand.Weapon != null)
+        if(Equipments.HaveWeapon())
         {
             return AttributesSecondary.Damage + Equipments.FirstHand!.Weapon!.Damage;
         }
@@ -27,7 +25,7 @@ public class Player(int hp, Attributes attributes) : Character(hp, attributes)
 
     public override int CurrentHit()
     {
-        if(Equipments.FirstHand != null && Equipments.FirstHand.Weapon != null)
+        if(Equipments.HaveWeapon())
         {
             return AttributesSecondary.HitChance + Equipments.FirstHand!.Weapon!.HitChance;
         }

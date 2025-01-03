@@ -1,4 +1,4 @@
-namespace RpgSample.Domain.Entities.Equipments;
+namespace RpgSample.Domain.Weapons;
 
 public abstract class Weapon(int damage, int hit)
 {
