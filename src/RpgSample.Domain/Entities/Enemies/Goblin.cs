@@ -2,18 +2,12 @@ namespace RpgSample.Domain.Entities.Enemies;
 
 public class Goblin(int hp, Attributes attributes) : Character(hp, attributes)
 {
-    public override int CurrentHit()
-    {
-        return AttributesSecondary.HitChance;
-    }
+    #region Base
+    protected override int SetBaseDamage() => base.SetBaseDamage() + 5;
+    
+    #endregion
 
-    protected override int CurrentDamage()
-    {
-        return AttributesSecondary.Damage;
-    }
+    public override int CurrentHit() => AttributesSecondary.HitChance;
+    public override int CurrentDamage() => AttributesSecondary.Damage;
 
-    protected override void SetDefense()
-    {
-        AttributesSecondary.Defense = 4;
-    }
 }

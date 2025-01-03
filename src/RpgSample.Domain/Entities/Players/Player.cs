@@ -5,7 +5,8 @@ namespace RpgSample.Domain.Entities.Players;
 public class Player(int hp, Attributes attributes) : Character(hp, attributes)
 {
     public Equip Equipments { get; set; } = new();
-    protected override void SetDefense() => AttributesSecondary.Defense = 3;
+
+    protected override int SetBaseDefense() => 4;
 
     public void EquipWeapon(Weapon weapon)
     {
@@ -14,7 +15,7 @@ public class Player(int hp, Attributes attributes) : Character(hp, attributes)
         Equipments.FirstHand.Weapon = weapon;
     }
 
-    protected override int CurrentDamage()
+    public override int CurrentDamage()
     {
         if(Equipments.FirstHand != null && Equipments.FirstHand.Weapon != null)
         {

@@ -4,6 +4,8 @@ namespace RpgSample.Domain.Service.BattleService;
 
 public class Battle
 {
+    private static readonly AttackService atk = new();
+
     public static void Start(Character one, Character two)
     {
         while(!one.IsDead && !two.IsDead)
@@ -15,8 +17,8 @@ public class Battle
             Console.WriteLine("\n");
 
             Console.WriteLine("\tBATTLE STATS\n");
-            Console.WriteLine($"Player cause {one.Attack(two)} damage.\n");
-            Console.WriteLine($"Enemy cause {two.Attack(one)} damage.");
+            Console.WriteLine($"Player cause {atk.Attack(one, two)} damage.\n");
+            Console.WriteLine($"Enemy cause {atk.Attack(two, one)} damage.");
             Console.WriteLine("\n");
             
             ShowBattleStats.Show(one, two);
