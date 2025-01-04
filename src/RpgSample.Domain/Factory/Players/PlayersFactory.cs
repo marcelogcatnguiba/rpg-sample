@@ -7,9 +7,9 @@ public static class PlayersFactory
         {
             CaracterClass.Warrior => new Warrior(100, new(8, 5, 2)),
 
-            CaracterClass.Ranger => new Warrior(70, new(8, 5, 2)),
+            CaracterClass.Ranger => new Ranger(70, new(8, 5, 2)),
             
-            CaracterClass.Mage => new Warrior(50, new(8, 5, 2)),
+            CaracterClass.Mage => new Mage(50, new(8, 5, 2)),
 
             _ => throw new NotImplementedException("Class not found")
         };
