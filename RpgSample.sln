@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E627ECE1-691
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgSample.Domain", "src\RpgSample.Domain\RpgSample.Domain.csproj", "{9EA2EFA9-D04B-4C3E-886B-A2ABA8A621BB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C1FC6760-F797-4825-A06C-CDCDBEC1C467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgSample.Domain.Test", "tests\RpgSample.Domain.Test\RpgSample.Domain.Test.csproj", "{78592321-34E7-47FD-8A82-556649320D70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{9EA2EFA9-D04B-4C3E-886B-A2ABA8A621BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EA2EFA9-D04B-4C3E-886B-A2ABA8A621BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EA2EFA9-D04B-4C3E-886B-A2ABA8A621BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78592321-34E7-47FD-8A82-556649320D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78592321-34E7-47FD-8A82-556649320D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78592321-34E7-47FD-8A82-556649320D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78592321-34E7-47FD-8A82-556649320D70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9EA2EFA9-D04B-4C3E-886B-A2ABA8A621BB} = {E627ECE1-6913-4BD5-839D-3E7681629A77}
+		{78592321-34E7-47FD-8A82-556649320D70} = {C1FC6760-F797-4825-A06C-CDCDBEC1C467}
 	EndGlobalSection
 EndGlobal
