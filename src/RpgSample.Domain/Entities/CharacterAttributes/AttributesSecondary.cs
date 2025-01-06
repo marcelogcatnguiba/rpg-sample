@@ -6,6 +6,7 @@ public class AttributesSecondary
     public int Defense { get; set; }
     public int HitChance { get; private set; }
     public int DodgeChance { get; private set; }
+    public int CriticalChance { get; set; } = 15;
 
     public void UpdateStats(MinMaxDamage? minMaxDamage, int? defense, int? hit, int? dodge)
     {
@@ -43,4 +44,10 @@ public class AttributesSecondary
 
     public int MinDamage() => MinMaxDamage.Min;
     public int MaxDamage() => MinMaxDamage.Max;
+
+    public override string ToString() => 
+          $"Damage: {MinDamage()} - {MaxDamage()}\n"
+        + $"Defense: {Defense}\n"
+        + $"Hit: {HitChance}\n"
+        + $"Dodge: {DodgeChance}\n";
 }

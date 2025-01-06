@@ -14,6 +14,8 @@ public abstract class Character: TargetObject
 
     public virtual int CurrentHit() => AttributesSecondary.HitChance;
 
+    public virtual int CurrentCriticalChance() => AttributesSecondary.CriticalChance;
+
     public virtual int CurrentDamage() => 
         _random.Next(AttributesSecondary.MinDamage(), 
                      AttributesSecondary.MaxDamage());
@@ -29,8 +31,6 @@ public abstract class Character: TargetObject
     public override string ToString() => 
         $"{GetType().Name} stats:\n" 
             + $"HP: {HP}\n"
-            + $"Defense: {AttributesSecondary.Defense}\n"
-            + $"Hit: {AttributesSecondary.HitChance}\n"
-            + $"Dodge: {AttributesSecondary.DodgeChance}";
+            + $"Att Secondary: \n{AttributesSecondary}";
     
 }

@@ -42,14 +42,14 @@ public static class BattleService
                 Console.WriteLine("Sword equipada com sucesso!.");
             }
         
-            var loser = one.IsDead ? one : two;
-            if(loser is not null)
-            {
-                Console.WriteLine($"\n{loser.GetType().Name} morreu ...");
-                return;
-            }
         }
 
+        var loser = one.IsDead ? one : two;
+        if(loser is not null)
+        {
+            Console.WriteLine($"\n{loser.GetType().Name} morreu ...");
+            return;
+        }
 
         Console.WriteLine("\nEmpatado");
     }
