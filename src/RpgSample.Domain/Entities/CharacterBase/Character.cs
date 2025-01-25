@@ -15,6 +15,8 @@ public abstract class Character: TargetObject
     public virtual int CurrentHit() => AttributesSecondary.HitChance;
 
     public virtual int CurrentCriticalChance() => AttributesSecondary.CriticalChance;
+    
+    public virtual double CurrentCriticalDamage() => AttributesSecondary.CriticalDamage;
 
     public virtual int CurrentDamage() => 
         _random.Next(AttributesSecondary.MinDamage(), 
@@ -24,7 +26,7 @@ public abstract class Character: TargetObject
         _random.Next(AttributesSecondary.MinDamage(), 
                      AttributesSecondary.MaxDamage());
 
-    public int GetDamage(int min, int max) => 
+    public int GetDamageWithBonus(int min, int max) => 
         _random.Next(AttributesSecondary.MinDamage() + min, 
                      AttributesSecondary.MaxDamage() + max);
 
