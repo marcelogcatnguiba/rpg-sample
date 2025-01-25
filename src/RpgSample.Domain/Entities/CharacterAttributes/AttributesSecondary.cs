@@ -7,6 +7,7 @@ public class AttributesSecondary
     public int HitChance { get; private set; }
     public int DodgeChance { get; private set; }
     public int CriticalChance { get; set; } = 15;
+    public int CriticalDamage { get; set; } = 2;
 
     public void UpdateStats(MinMaxDamage? minMaxDamage, int? defense, int? hit, int? dodge)
     {

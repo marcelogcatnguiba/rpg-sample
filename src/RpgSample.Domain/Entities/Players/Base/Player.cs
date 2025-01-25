@@ -10,7 +10,7 @@ public abstract class Player(int hp, Attributes attributes) : Character(hp, attr
     }
 
     public override int CurrentDamage() => Equipments.HaveWeapon()
-        ? GetDamage(Equipments.MinDamage(), Equipments.MaxDamage())
+        ? GetDamageWithBonus(Equipments.MinDamage(), Equipments.MaxDamage())
         : GetDamage();
 
     public override int CurrentHit() => Equipments.HaveWeapon()
